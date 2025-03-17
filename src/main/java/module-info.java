@@ -1,0 +1,13 @@
+module org.example.ormhibernatefinalcw {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires lombok;
+    requires jakarta.persistence;
+    requires org.hibernate.orm.core;
+
+    opens org.example.ormhibernatefinalcw to javafx.fxml;
+    opens org.example.ormhibernatefinalcw.controller to javafx.fxml;
+    opens org.example.ormhibernatefinalcw.dto to javafx.base;
+
+    exports org.example.ormhibernatefinalcw;
+}
