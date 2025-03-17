@@ -57,7 +57,7 @@
                </font>
             </Text>
          </children></Pane>
-      <JFXButton layoutX="54.0" layoutY="393.0" prefHeight="44.0" prefWidth="172.0" style="-fx-background-color: #6366f1;" text="Get Started" textFill="#fcfcfc">
+      <JFXButton layoutX="54.0" layoutY="393.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #6366f1;" text="Get Started" textFill="#fcfcfc">
          <font>
             <Font name="Poppins Medium" size="12.5" />
          </font>
