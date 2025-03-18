@@ -4,6 +4,11 @@ module org.example.ormhibernatefinalcw {
     requires lombok;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires java.naming;
+
+    opens org.example.ormhibernatefinalcw.entity to org.hibernate.orm.core;
+    opens org.example.ormhibernatefinalcw.config to jakarta.persistence;
+
 
     opens org.example.ormhibernatefinalcw to javafx.fxml;
     opens org.example.ormhibernatefinalcw.controller to javafx.fxml;

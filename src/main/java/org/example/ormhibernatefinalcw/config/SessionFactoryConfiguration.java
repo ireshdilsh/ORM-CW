@@ -8,19 +8,21 @@ import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfiguration {
     private static SessionFactoryConfiguration sessionFactoryConfiguration;
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-    private SessionFactoryConfiguration(){
-        Configuration configuration = new Configuration().configure();
-
+    private SessionFactoryConfiguration() {
+        Configuration configuration = new Configuration();
+        configuration.configure();
         configuration.addAnnotatedClass(Customer.class)
-                     .addAnnotatedClass(Item.class);
-
+                .addAnnotatedClass(Item.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 
-    public static SessionFactoryConfiguration getInstance(){
-        return sessionFactoryConfiguration == null ? new SessionFactoryConfiguration() : sessionFactoryConfiguration;
+    public static SessionFactoryConfiguration getInstance() {
+        if (sessionFactoryConfiguration == null) {
+            sessionFactoryConfiguration = new SessionFactoryConfiguration();
+        }
+        return sessionFactoryConfiguration;
     }
 
     public Session getSession() {
