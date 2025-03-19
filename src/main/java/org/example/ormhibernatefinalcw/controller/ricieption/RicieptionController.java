@@ -8,10 +8,26 @@ import org.example.ormhibernatefinalcw.utils.WindowUtils;
 public class RicieptionController {
 
     @FXML
-    private AnchorPane loginPane;
-    
+    private AnchorPane pane;
+
     @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("Landing",loginPane);
+        new WindowUtils().navigateTo("Landing",pane);
     }
+
+    @FXML
+    void gotoPatientView(ActionEvent event) {
+        System.out.println("Click Button");
+    }
+
+    @FXML
+    void gotoPaymentView(ActionEvent event) {
+        System.out.println("Click Button");
+    }
+
+    @FXML
+    void gotoSessionView(ActionEvent event) {
+        System.out.println("Click Button");
+    }
+
 }

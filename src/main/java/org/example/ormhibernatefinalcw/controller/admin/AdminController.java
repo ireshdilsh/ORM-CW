@@ -8,9 +8,20 @@ import org.example.ormhibernatefinalcw.utils.WindowUtils;
 public class AdminController {
 
     @FXML
-    private AnchorPane loginPane;
+    private AnchorPane pane;
 
-    public void gotoLandingPage(ActionEvent actionEvent) throws Exception{
-        new WindowUtils().navigateTo("Landing",loginPane);
+    @FXML
+    void gotoLandingPage(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("Landing",pane);
+    }
+
+    @FXML
+    void gotoTherepistView(ActionEvent event) {
+        System.out.println("Clicked the button");
+    }
+
+    @FXML
+    void gotoTherepyProgrammesView(ActionEvent event) {
+        System.out.println("Clicked the button");
     }
 }
