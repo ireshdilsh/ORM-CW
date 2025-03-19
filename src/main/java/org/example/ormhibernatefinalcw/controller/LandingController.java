@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import org.example.ormhibernatefinalcw.utils.WindowUtils;
 
 public class LandingController {
+    
     @FXML
     private AnchorPane mainPane;
 
