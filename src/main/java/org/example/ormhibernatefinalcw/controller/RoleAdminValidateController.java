@@ -28,22 +28,6 @@ public class RoleAdminValidateController {
 
     @FXML
     void validateAdmin(ActionEvent event) {
-        if (emailTxt.getText().isEmpty()){
-            new Alert(Alert.AlertType.ERROR,"Something Went Wrong !").show();
-        }
-
-        if (passwordTxt.getText().isEmpty()){
-            new Alert(Alert.AlertType.ERROR,"Something Went Wrong !").show();
-        }
-
-        if (emailTxt.getText() == email){
-            if (passwordTxt.getText() == password){
-                System.out.println("Login Success !");
-            }else {
-                new Alert(Alert.AlertType.ERROR,"Something Went Wrong ! Enter valid password").show();
-            }
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Something Went Wrong ! Enter valid email address").show();
-        }
+      // need validation logic
     }
 }
