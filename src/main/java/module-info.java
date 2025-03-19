@@ -15,4 +15,5 @@ module org.example.ormhibernatefinalcw {
     opens org.example.ormhibernatefinalcw.dto to javafx.base;
 
     exports org.example.ormhibernatefinalcw;
+    opens org.example.ormhibernatefinalcw.controller.admin to javafx.fxml;
 }
