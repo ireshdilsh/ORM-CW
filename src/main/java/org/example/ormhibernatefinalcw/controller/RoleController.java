@@ -15,11 +15,6 @@ public class RoleController {
     }
 
     @FXML
-    void gotoLoginView(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("LoginView",rolesPane);
-    }
-
-    @FXML
     void gotoRicieptionValidateView(ActionEvent event) throws Exception{
         new WindowUtils().navigateTo("RoleRicieptionView",rolesPane);
     }

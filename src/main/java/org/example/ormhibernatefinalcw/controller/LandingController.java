@@ -13,9 +13,4 @@ public class LandingController {
     void gotoRegisterPage(ActionEvent event) throws Exception{
         new WindowUtils().navigateTo("RolesView", mainPane);
     }
-
-    @FXML
-    void gotoSigninPage(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("RolesView",mainPane);
-    }
 }

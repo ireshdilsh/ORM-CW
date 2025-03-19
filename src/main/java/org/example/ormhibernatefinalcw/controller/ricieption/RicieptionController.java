@@ -12,7 +12,7 @@ public class RicieptionController {
 
     @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("Landing",pane);
+        new WindowUtils().navigateTo("RoleRicieptionView",pane);
     }
 
     @FXML

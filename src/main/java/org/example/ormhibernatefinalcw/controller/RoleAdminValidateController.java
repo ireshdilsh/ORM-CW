@@ -27,7 +27,7 @@ public class RoleAdminValidateController {
     private final String password = "12";
 
     @FXML
-    void validateAdmin(ActionEvent event) {
-      // need validation logic
+    void validateAdmin(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("admin/AdminView",rolesvalidatePane);
     }
 }

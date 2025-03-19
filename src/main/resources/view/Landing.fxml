@@ -65,14 +65,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="689.0" layoutY="43.0" onAction="#gotoSigninPage" prefHeight="38.0" prefWidth="118.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1; -fx-border-radius: 2px;" text="Sign In Here" textFill="#6366f1">
-         <font>
-            <Font name="Poppins Medium" size="12.5" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
       <Text layoutX="53.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A compassionate and supportive space for healing, personal growth, ">
          <font>
             <Font name="Poppins Medium" size="12.5" />

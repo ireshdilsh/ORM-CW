@@ -22,11 +22,9 @@ public class RoleRicieptionValidateController {
         new WindowUtils().navigateTo("RolesView",rolesvalidatePane);
     }
 
-    private final String email = "12";
-    private final String password = "12";
-
     @FXML
-    void validateRicieption(ActionEvent event) {
-        // need validtion logic
+    void validateRicieption(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("ricieption/RicieptionView",rolesvalidatePane);
     }
+
 }
