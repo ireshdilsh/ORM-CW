@@ -75,14 +75,14 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-      <JFXButton layoutX="131.0" layoutY="308.0" onAction="#gotoPatientView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Manage Patients">
+      <JFXButton layoutX="52.0" layoutY="306.0" onAction="#gotoPatientView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Manage Patients">
          <font>
             <Font name="Poppins Medium" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton layoutX="334.0" layoutY="308.0" onAction="#gotoSessionView" prefHeight="90.0" prefWidth="194.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Therepy Sessions">
+      <JFXButton layoutX="240.0" layoutY="306.0" onAction="#gotoSessionView" prefHeight="90.0" prefWidth="194.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Therepy Sessions">
          <font>
             <Font name="Poppins Medium" size="15.0" />
          </font>
@@ -90,7 +90,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="552.0" layoutY="308.0" onAction="#gotoPaymentView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Payments">
+      <JFXButton layoutX="443.0" layoutY="306.0" onAction="#gotoPaymentView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Payments">
+         <font>
+            <Font name="Poppins Medium" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="630.0" layoutY="306.0" onAction="#addNewRicieption" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Add New Ricieption">
          <font>
             <Font name="Poppins Medium" size="15.0" />
          </font>

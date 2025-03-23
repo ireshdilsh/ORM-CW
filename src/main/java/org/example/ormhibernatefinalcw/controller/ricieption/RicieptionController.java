@@ -11,6 +11,11 @@ public class RicieptionController {
     private AnchorPane pane;
 
     @FXML
+    void addNewRicieption(ActionEvent event) {
+        System.out.println("Clicked the add new ricieption button");
+    }
+
+    @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
         new WindowUtils().navigateTo("RoleRicieptionView",pane);
     }
