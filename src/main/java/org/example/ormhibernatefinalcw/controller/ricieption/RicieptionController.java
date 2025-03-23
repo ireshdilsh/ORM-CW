@@ -16,18 +16,18 @@ public class RicieptionController {
     }
 
     @FXML
-    void gotoPatientView(ActionEvent event) {
-        System.out.println("Click Button");
+    void gotoPatientView(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("ricieption/PatcienView",pane);
     }
 
     @FXML
-    void gotoPaymentView(ActionEvent event) {
-        System.out.println("Click Button");
+    void gotoPaymentView(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("ricieption/PaymentView",pane);
     }
 
     @FXML
-    void gotoSessionView(ActionEvent event) {
-        System.out.println("Click Button");
+    void gotoSessionView(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("ricieption/SessionView",pane);
     }
 
 }

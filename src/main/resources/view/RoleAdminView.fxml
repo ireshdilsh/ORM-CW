@@ -86,12 +86,12 @@
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="emailTxt" layoutX="308.0" layoutY="320.0" prefHeight="42.0" prefWidth="278.0" promptText="test12@gmail.com" style="-fx-background-color: #fafafa; -fx-padding: 0 10px;">
+      <TextField fx:id="emailTxt" layoutX="308.0" layoutY="320.0" prefHeight="42.0" prefWidth="278.0" promptText="test12@gmail.com" style="-fx-background-color: #fafafa; -fx-padding: 0 10px; -fx-border-color: #B5B8C6; -fx-background-radius: 5px; -fx-border-radius: 5px;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordTxt" layoutX="308.0" layoutY="396.0" prefHeight="42.0" prefWidth="278.0" promptText="* * * * * * * * * *" style="-fx-background-color: #fafafa; -fx-padding: 0 10px;">
+      <PasswordField fx:id="passwordTxt" layoutX="308.0" layoutY="396.0" prefHeight="42.0" prefWidth="278.0" promptText="* * * * * * * * * *" style="-fx-background-color: #fafafa; -fx-padding: 0 10px; -fx-border-radius: 5px; -fx-border-color: #B5B8C6;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>

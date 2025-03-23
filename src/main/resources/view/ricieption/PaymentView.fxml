@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="861.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ormhibernatefinalcw.controller.ricieption.PatcientController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="861.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ormhibernatefinalcw.controller.ricieption.PaymentController">
     <children>
         <ImageView fitHeight="108.0" fitWidth="118.0" layoutX="30.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -53,7 +53,7 @@
                     </font>
                 </Text>
             </children></Pane>
-        <Text fill="#333333" layoutX="241.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Allows patients to view therapy plans, schedules, and track progress easily.">
+        <Text fill="#333333" layoutX="243.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Handles therapy session payments, invoices, and transaction history securely.">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font>
@@ -75,7 +75,7 @@
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font></TextField>
-        <Text fill="#333333" layoutX="50.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name">
+        <Text fill="#333333" layoutX="50.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Name">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font>
