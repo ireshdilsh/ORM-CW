@@ -16,12 +16,12 @@ public class AdminController {
     }
 
     @FXML
-    void gotoTherepistView(ActionEvent event) {
-        System.out.println("Clicked the button");
+    void gotoTherepistView(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("admin/TherepistView",pane);
     }
 
     @FXML
-    void gotoTherepyProgrammesView(ActionEvent event) {
-        System.out.println("Clicked the button");
+    void gotoTherepyProgrammesView(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("admin/TherepyProgrammeView",pane);
     }
 }
