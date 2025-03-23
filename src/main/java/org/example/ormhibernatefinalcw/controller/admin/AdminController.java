@@ -11,6 +11,11 @@ public class AdminController {
     private AnchorPane pane;
 
     @FXML
+    void addNewAdmin(ActionEvent event) {
+        System.out.println("Clicked add new admin buton");
+    }
+
+    @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
         new WindowUtils().navigateTo("RoleAdminView",pane);
     }

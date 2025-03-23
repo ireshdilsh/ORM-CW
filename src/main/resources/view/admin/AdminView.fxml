@@ -75,14 +75,14 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton layoutX="231.0" layoutY="308.0" onAction="#gotoTherepistView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Manage Therepist">
+        <JFXButton layoutX="332.0" layoutY="308.0" onAction="#gotoTherepistView" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Manage Therepist">
             <font>
                 <Font name="Poppins Medium" size="15.0" />
             </font>
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></JFXButton>
-        <JFXButton layoutX="434.0" layoutY="308.0" onAction="#gotoTherepyProgrammesView" prefHeight="90.0" prefWidth="194.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Therepy Programmes">
+        <JFXButton layoutX="535.0" layoutY="308.0" onAction="#gotoTherepyProgrammesView" prefHeight="90.0" prefWidth="194.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Therepy Programmes">
             <font>
                 <Font name="Poppins Medium" size="15.0" />
             </font>
@@ -90,5 +90,13 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
+      <JFXButton layoutX="129.0" layoutY="308.0" onAction="#addNewAdmin" prefHeight="89.0" prefWidth="178.0" style="-fx-background-color: #fff; -fx-border-color: #6366f1;" text="Add New Admin">
+         <font>
+            <Font name="Poppins Medium" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
     </children>
 </AnchorPane>
