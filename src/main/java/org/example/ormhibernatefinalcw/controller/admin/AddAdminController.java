@@ -9,7 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AddAdminController {
-@FXML
+    
+    @FXML
     private TextField emailTxt;
 
     @FXML
@@ -19,7 +20,7 @@ public class AddAdminController {
     private AnchorPane rolesvalidatePane;
 
     @FXML
-    void gotoLandingPage(ActionEvent event) throws Exception{
+    void gotoLandingPage(ActionEvent event) throws Exception {
         new WindowUtils().navigateTo("RolesView", rolesvalidatePane);
     }
 
