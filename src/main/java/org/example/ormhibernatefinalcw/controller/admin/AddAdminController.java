@@ -20,7 +20,7 @@ public class AddAdminController {
 
     @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("RoleAdminView", rolesvalidatePane);
+        new WindowUtils().navigateTo("RolesView", rolesvalidatePane);
     }
 
     @FXML

@@ -21,7 +21,7 @@ public class AddRicieptionController {
 
     @FXML
     void gotoLandingPage(ActionEvent event) throws Exception{
-        new WindowUtils().navigateTo("RoleRicieptionView", rolesvalidatePane);
+        new WindowUtils().navigateTo("RolesView", rolesvalidatePane);
     }
 
     @FXML
