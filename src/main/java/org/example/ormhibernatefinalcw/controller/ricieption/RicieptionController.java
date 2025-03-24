@@ -11,8 +11,8 @@ public class RicieptionController {
     private AnchorPane pane;
 
     @FXML
-    void addNewRicieption(ActionEvent event) {
-        System.out.println("Clicked the add new ricieption button");
+    void addNewRicieption(ActionEvent event) throws Exception{
+        new WindowUtils().navigateTo("ricieption/NewRicieptionView", pane);
     }
 
     @FXML
