@@ -1,5 +1,7 @@
 package org.example.ormhibernatefinalcw.service;
 
+import org.example.ormhibernatefinalcw.service.custom.impl.AdminServiceImpl;
+
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
 
@@ -11,14 +13,14 @@ public class ServiceFactory {
 
     public SuperService getService(Type type){
         switch (type){
-            case USER :
-                return null;
+            case ADMIN :
+                return new AdminServiceImpl();
             default:
                 return null;
         }
     }
 
     public enum Type{
-        USER
+        ADMIN,RICIEPTION
     }
 }

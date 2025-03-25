@@ -4,8 +4,10 @@ import org.example.ormhibernatefinalcw.utils.WindowUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 public class AddRicieptionController {
@@ -26,6 +28,15 @@ public class AddRicieptionController {
 
     @FXML
     void validateAdmin(ActionEvent event) {
+
+            if (emailTxt.getText().isEmpty()) {
+                new Alert(AlertType.ERROR,"Email Cannot be null !").show();
+            }
+
+            if (passwordTxt.getText().isEmpty()) {
+                new Alert(AlertType.ERROR,"Password Cannot be null !").show();
+            }
+
             
     }
 }
