@@ -15,9 +15,7 @@ public class SessionFactoryConfiguration {
     private SessionFactoryConfiguration() {
         Configuration configuration = new Configuration();
         configuration.configure();
-        configuration.addAnnotatedClass(Customer.class)
-                .addAnnotatedClass(Item.class)
-                .addAnnotatedClass(Admin.class)
+        configuration.addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Riciepion.class);
         sessionFactory = configuration.buildSessionFactory();
     }
