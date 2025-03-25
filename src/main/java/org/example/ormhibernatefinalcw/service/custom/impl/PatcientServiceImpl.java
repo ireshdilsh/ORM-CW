@@ -24,9 +24,7 @@ public class PatcientServiceImpl implements PatcientService {
     @Override
     public boolean updatePatcient(PatcientDto patcientDto) throws Exception{
         return patcientDao.update(new Patcient(
-                patcientDto.getName(),
-                patcientDto.getEmail(),
-                patcientDto.getContact()
+                patcientDto.getName(), patcientDto.getEmail(), patcientDto.getContact()
         ));
     }
 
@@ -45,4 +43,10 @@ public class PatcientServiceImpl implements PatcientService {
         }
         return patcientDtos;
     }
+
+    @Override
+    public boolean deletePatcient(int id) throws Exception{
+        return patcientDao.deleteByPK(String.valueOf(id));
+    }
+
 }

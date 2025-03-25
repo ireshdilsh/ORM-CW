@@ -56,7 +56,28 @@ public class PatcientDaoImpl implements PatcientDao {
 
     @Override
     public boolean deleteByPK(String pk) throws Exception {
-        return false;
+        Session session = sessionFactoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+
+            Patcient patcient = session.get(Patcient.class,pk);
+
+            if (patcient != null){
+                session.remove(patcient);
+                transaction.commit();
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
     }
 
     @Override

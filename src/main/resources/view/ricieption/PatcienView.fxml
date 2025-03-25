@@ -126,7 +126,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="patTbl" layoutX="109.0" layoutY="315.0" prefHeight="186.0" prefWidth="630.0">
+      <TableView fx:id="patTbl" layoutX="109.0" layoutY="315.0" onMouseClicked="#tblClick" prefHeight="186.0" prefWidth="630.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Pat_ID" />
           <TableColumn fx:id="nameCol" prefWidth="207.1999969482422" text="Name" />

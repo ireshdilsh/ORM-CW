@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.example.ormhibernatefinalcw.dto.PatcientDto;
 import org.example.ormhibernatefinalcw.dto.tm.PatcientTM;
@@ -62,7 +63,8 @@ public class PatcientController implements Initializable {
 
             if (resp){
                 new Alert(Alert.AlertType.INFORMATION,"Patcient Added Success !").show();
-//                getAll();
+                clearFields();
+                getAll();
             }else {
                 new Alert(Alert.AlertType.ERROR,"Patcient Added Failed !").show();
             }
@@ -73,28 +75,46 @@ public class PatcientController implements Initializable {
     }
 
     @FXML
-    void deletePatcient(ActionEvent event) {
+    void deletePatcient(ActionEvent event) throws Exception{
 
+        PatcientTM tm = patTbl.getSelectionModel().getSelectedItem();
+
+        if (tm != null){
+
+            int id = tm.getId();
+            boolean resp = patcientService.deletePatcient(id);
+
+            if (resp){
+                new Alert(Alert.AlertType.INFORMATION,"Patcient Deleted !").show();
+                clearFields();
+                getAll();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Something Went Wrong").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Cannot find the Patcient !").show();
+        }
     }
 
     @FXML
     void updatePatcient(ActionEvent event) throws Exception{
-        if (contactTxt.getText().matches("^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$\n")){
+      //  if (contactTxt.getText().matches("^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$\n")){
 
-            boolean resp = patcientService.updatePatcient(new PatcientDto(
-                    nameTxt.getText(),emailTxt.getText(), Integer.parseInt(contactTxt.getText())
-            ));
+        boolean resp = patcientService.updatePatcient(new PatcientDto(
+                nameTxt.getText(), emailTxt.getText(), Integer.parseInt(contactTxt.getText())
+        ));
 
-            if (resp){
-                new Alert(Alert.AlertType.INFORMATION,"Patcient Update Success !").show();
-//                getAll();
-            }else {
-                new Alert(Alert.AlertType.ERROR,"Patcient Update Failed !").show();
-            }
-
+        if (resp){
+            new Alert(Alert.AlertType.INFORMATION,"Update Success !").show();
+            getAll();
+            clearFields();
         }else {
             new Alert(Alert.AlertType.ERROR,"Something Went Wrong !").show();
         }
+
+//        }else {
+//            new Alert(Alert.AlertType.ERROR,"Something Went Wrong !").show();
+//        }
     }
 
     @FXML
@@ -118,6 +138,17 @@ public class PatcientController implements Initializable {
         patTbl.setItems(patTMS);
     }
 
+    @FXML
+    void tblClick(MouseEvent event) {
+        PatcientTM tm = patTbl.getSelectionModel().getSelectedItem();
+
+        if (tm != null){
+            nameTxt.setText(tm.getName());
+            emailTxt.setText(tm.getEmail());
+            contactTxt.setText(String.valueOf(tm.getContact()));
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -131,5 +162,11 @@ public class PatcientController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    void clearFields(){
+        nameTxt.setText("");
+        emailTxt.setText("");
+        contactTxt.setText("");
     }
 }
