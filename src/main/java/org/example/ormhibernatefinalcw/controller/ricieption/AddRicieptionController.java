@@ -33,7 +33,7 @@ public class AddRicieptionController {
     }
 
     @FXML
-    void validateAdmin(ActionEvent event) {
+    void validateAdmin(ActionEvent event) throws Exception{
 
         if (emailTxt.getText().isEmpty()) {
             new Alert(AlertType.ERROR, "Email Cannot be null !").show();
