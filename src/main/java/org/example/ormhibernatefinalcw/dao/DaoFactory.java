@@ -1,6 +1,8 @@
 package org.example.ormhibernatefinalcw.dao;
 
 import org.example.ormhibernatefinalcw.dao.custom.impl.AdminDaoImpl;
+import org.example.ormhibernatefinalcw.dao.custom.impl.PatcientDaoImpl;
+import org.example.ormhibernatefinalcw.dao.custom.impl.RicieptionDaoImpl;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -15,12 +17,16 @@ public class DaoFactory {
         switch (type){
             case ADMIN :
                 return new AdminDaoImpl();
+            case PATCIENT:
+                return new PatcientDaoImpl();
+            case RICIEPTION:
+                return new RicieptionDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum Type{
-        ADMIN,RICIEPTION
+        ADMIN,RICIEPTION,PATCIENT
     }
 }

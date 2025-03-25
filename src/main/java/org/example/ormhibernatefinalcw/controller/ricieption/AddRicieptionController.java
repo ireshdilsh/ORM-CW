@@ -45,7 +45,9 @@ public class AddRicieptionController {
 
         Boolean resp = ricieptionService.addNewRicieption(
                 new RicieptionDto(
-                        emailTxt.getText(), passwordTxt.getText()));
+                        emailTxt.getText(),
+                        passwordTxt.getText()
+                ));
         
         if (resp) {
             new Alert(AlertType.INFORMATION,"Ricieption Addedd Success !").show();

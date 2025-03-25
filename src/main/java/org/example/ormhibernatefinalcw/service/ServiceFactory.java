@@ -1,6 +1,7 @@
 package org.example.ormhibernatefinalcw.service;
 
 import org.example.ormhibernatefinalcw.service.custom.impl.AdminServiceImpl;
+import org.example.ormhibernatefinalcw.service.custom.impl.PatcientServiceImpl;
 import org.example.ormhibernatefinalcw.service.custom.impl.RicieptionServiceImpl;
 
 public class ServiceFactory {
@@ -19,13 +20,16 @@ public class ServiceFactory {
             
             case RICIEPTION:
                 return new RicieptionServiceImpl();
-                
+
+            case PATCIENT:
+                return new PatcientServiceImpl();
+
             default:
                 return null;
         }
     }
 
     public enum Type{
-        ADMIN,RICIEPTION
+        ADMIN,RICIEPTION,PATCIENT
     }
 }

@@ -33,8 +33,8 @@ public class AddAdminController {
     }
 
     @FXML
-    void validateAdmin(ActionEvent event) {
-        if (emailTxt.getText().isEmpty()) {
+    void validateAdmin(ActionEvent event) throws Exception{
+        if (emailTxt.getText().isEmpty() || emailTxt.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
             new Alert(AlertType.ERROR, "Email Cannot be null !").show();
         }
 
