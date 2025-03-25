@@ -1,6 +1,7 @@
 package org.example.ormhibernatefinalcw.service;
 
 import org.example.ormhibernatefinalcw.service.custom.impl.AdminServiceImpl;
+import org.example.ormhibernatefinalcw.service.custom.impl.RicieptionServiceImpl;
 
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
@@ -15,6 +16,10 @@ public class ServiceFactory {
         switch (type){
             case ADMIN :
                 return new AdminServiceImpl();
+            
+            case RICIEPTION:
+                return new RicieptionServiceImpl();
+                
             default:
                 return null;
         }

@@ -21,6 +21,6 @@ public class DaoFactory {
     }
 
     public enum Type{
-        ADMIN
+        ADMIN,RICIEPTION
     }
 }
