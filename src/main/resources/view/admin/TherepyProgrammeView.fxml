@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
@@ -20,7 +22,7 @@
                 <Image url="@../../assets/logo%20(2).png" />
             </image>
         </ImageView>
-        <Line endX="-100.0" endY="410.0" layoutX="243.0" layoutY="155.0" startX="-100.0" startY="-155.0" stroke="#fafafa" strokeWidth="1.5" />
+        <Line endX="-100.0" endY="410.0" layoutX="250.0" layoutY="154.0" startX="-100.0" startY="-155.0" stroke="#fafafa" strokeWidth="1.5" />
         <Line endX="-100.0" endY="410.0" layoutX="378.0" layoutY="155.0" startX="-100.0" startY="-155.0" stroke="#fafafa" strokeWidth="1.5" />
         <Line endX="-100.0" endY="410.0" layoutX="513.0" layoutY="155.0" startX="-100.0" startY="-155.0" stroke="#fafafa" strokeWidth="1.5" />
         <Line endX="-100.0" endY="410.0" layoutX="645.0" layoutY="155.0" startX="-100.0" startY="-155.0" stroke="#fafafa" strokeWidth="1.5" />
@@ -71,14 +73,66 @@
                 <BoxBlur height="255.0" iterations="3" width="255.0" />
             </effect>
         </Circle>
-        <TextField layoutX="49.0" layoutY="184.0" prefHeight="42.0" prefWidth="369.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+        <TextField fx:id="nameTxt" layoutX="111.0" layoutY="186.0" prefHeight="42.0" prefWidth="347.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font></TextField>
-        <Text fill="#333333" layoutX="50.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therepy Programme">
+        <Text fill="#333333" layoutX="112.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therepy Programme">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font>
         </Text>
+      <TextField fx:id="durationTxt" layoutX="493.0" layoutY="188.0" prefHeight="42.0" prefWidth="288.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </TextField>
+      <Text fill="#333333" layoutX="494.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <TextField fx:id="feesTxt" layoutX="112.0" layoutY="253.0" prefHeight="42.0" prefWidth="156.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </TextField>
+      <Text fill="#333333" layoutX="113.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fees">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="332.0" layoutY="253.0" onAction="#addProgramme" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #6366f1;" text="Add Programme" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="473.0" layoutY="253.0" onAction="#deleteProgramme" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #6366f1;" text="Delete Programme" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="625.0" layoutY="253.0" onAction="#updtaeProgramme" prefHeight="42.0" prefWidth="156.0" style="-fx-background-color: #6366f1;" text="Update Programme" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="progtammeTbl" layoutX="110.0" layoutY="315.0" onMouseClicked="#tblClicked" prefHeight="200.0" prefWidth="670.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="Pro_ID" />
+          <TableColumn fx:id="nameCol" prefWidth="231.2000274658203" text="Name" />
+            <TableColumn fx:id="durationCol" prefWidth="231.2000274658203" text="Duration" />
+            <TableColumn fx:id="feesCol" prefWidth="129.60003662109375" text="Fees" />
+        </columns>
+      </TableView>
     </children>
 </AnchorPane>

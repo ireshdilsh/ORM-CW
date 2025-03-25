@@ -2,6 +2,7 @@ package org.example.ormhibernatefinalcw.service;
 
 import org.example.ormhibernatefinalcw.service.custom.impl.AdminServiceImpl;
 import org.example.ormhibernatefinalcw.service.custom.impl.PatcientServiceImpl;
+import org.example.ormhibernatefinalcw.service.custom.impl.ProgrammeServiceImpl;
 import org.example.ormhibernatefinalcw.service.custom.impl.RicieptionServiceImpl;
 
 public class ServiceFactory {
@@ -15,14 +16,17 @@ public class ServiceFactory {
 
     public SuperService getService(Type type){
         switch (type){
-            case ADMIN :
+                case ADMIN :
                 return new AdminServiceImpl();
             
-            case RICIEPTION:
+                case RICIEPTION:
                 return new RicieptionServiceImpl();
 
-            case PATCIENT:
+                case PATCIENT:
                 return new PatcientServiceImpl();
+
+                case PROGRAMME:
+                return new ProgrammeServiceImpl();
 
             default:
                 return null;
@@ -30,6 +34,6 @@ public class ServiceFactory {
     }
 
     public enum Type{
-        ADMIN,RICIEPTION,PATCIENT
+        ADMIN,RICIEPTION,PATCIENT,PROGRAMME
     }
 }

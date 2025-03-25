@@ -2,6 +2,7 @@ package org.example.ormhibernatefinalcw.dao;
 
 import org.example.ormhibernatefinalcw.dao.custom.impl.AdminDaoImpl;
 import org.example.ormhibernatefinalcw.dao.custom.impl.PatcientDaoImpl;
+import org.example.ormhibernatefinalcw.dao.custom.impl.ProgrammeDaoImpl;
 import org.example.ormhibernatefinalcw.dao.custom.impl.RicieptionDaoImpl;
 
 public class DaoFactory {
@@ -21,12 +22,14 @@ public class DaoFactory {
                 return new PatcientDaoImpl();
             case RICIEPTION:
                 return new RicieptionDaoImpl();
+            case PROGRAMME:
+                return new ProgrammeDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum Type{
-        ADMIN,RICIEPTION,PATCIENT
+        ADMIN,RICIEPTION,PATCIENT,PROGRAMME
     }
 }
