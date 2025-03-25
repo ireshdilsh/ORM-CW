@@ -1,8 +1,6 @@
 package org.example.ormhibernatefinalcw.config;
 
 import org.example.ormhibernatefinalcw.entity.Admin;
-import org.example.ormhibernatefinalcw.entity.Customer;
-import org.example.ormhibernatefinalcw.entity.Item;
 import org.example.ormhibernatefinalcw.entity.Riciepion;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
