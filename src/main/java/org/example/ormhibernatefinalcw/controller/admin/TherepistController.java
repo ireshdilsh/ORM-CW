@@ -134,14 +134,13 @@ public class TherepistController implements Initializable {
         saveBtn.setDisable(true);
         deleteBtn.setDisable(false);
         updateBtn.setDisable(false);
+
         TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
+
         if (therepyTM != null) {
-            // Set the values to the TextFields
             nameTxt.setText(therepyTM.getName());
-            programmeCmb.setValue(new ProgrammeDto(therepyTM.getName()));
             contactTxt.setText(String.valueOf(therepyTM.getContact()));
-        }else {
-            new Alert(AlertType.ERROR,"Cannot Find the Therepist !").show();
+                programmeCmb.setPromptText(therepyTM.getProName());
         }
     }
 
@@ -231,5 +230,9 @@ public class TherepistController implements Initializable {
         nameTxt.setText("");
         programmeCmb.getItems().clear();
         contactTxt.setText("");
+        programmeCmb.setPromptText("");
+        deleteBtn.setDisable(true);
+        updateBtn.setDisable(true);
+        saveBtn.setDisable(false);
     }
 }
