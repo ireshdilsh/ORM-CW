@@ -18,4 +18,8 @@ public class ProgrammeDto {
         this.duration = duration;
         this.fees = fees;
     }
+
+    public ProgrammeDto(String name) {
+        this.name = name;
+    }
 }

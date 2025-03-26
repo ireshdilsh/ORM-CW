@@ -1,11 +1,9 @@
 package org.example.ormhibernatefinalcw.dao.custom.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.example.ormhibernatefinalcw.config.SessionFactoryConfiguration;
 import org.example.ormhibernatefinalcw.dao.custom.TherepistDao;
-import org.example.ormhibernatefinalcw.entity.Programme;
 import org.example.ormhibernatefinalcw.entity.Therepist;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -36,20 +34,49 @@ public class TherepistDaoImpl implements TherepistDao{
     }
     @Override
     public boolean update(Therepist t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        Session session = configuration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.merge(t);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
     }
 
     @Override
     public boolean deleteByPK(String pk) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteByPK'");
+        Session session = configuration.getSession();
+        Transaction transaction = session.beginTransaction();
+        Therepist therepist = session.get(Therepist.class,pk);
+        try {
+            session.remove(therepist);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
     }
 
     @Override
     public List<Therepist> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        Session session = configuration.getSession();
+        Query<Therepist> query = session.createQuery("from therepist", Therepist.class);
+        return query.list();
     }
 
     @Override

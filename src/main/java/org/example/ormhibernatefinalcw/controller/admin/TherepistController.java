@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 
 import org.example.ormhibernatefinalcw.dto.ProgrammeDto;
 import org.example.ormhibernatefinalcw.dto.ThereoistDto;
+import org.example.ormhibernatefinalcw.dto.tm.ProgrammeTM;
 import org.example.ormhibernatefinalcw.dto.tm.TherepyTM;
 import org.example.ormhibernatefinalcw.service.ServiceFactory;
 import org.example.ormhibernatefinalcw.service.ServiceFactory.Type;
@@ -113,6 +114,7 @@ public class TherepistController implements Initializable {
             new Alert(AlertType.INFORMATION,"Therepist Added Succes").show();
             clearFields();
             getAllTherepies();
+            getAllProgrammes();
         }else {
             new Alert(AlertType.ERROR,"Something Went Wrong !").show();
         }
@@ -129,6 +131,9 @@ public class TherepistController implements Initializable {
 
     @FXML
     void clickTbl(MouseEvent event) {
+        saveBtn.setDisable(true);
+        deleteBtn.setDisable(false);
+        updateBtn.setDisable(false);
         TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
 
         if (therepyTM != null) {
@@ -139,13 +144,41 @@ public class TherepistController implements Initializable {
     }
 
     @FXML
-    void deleteTherepist(ActionEvent event) {
-        
+    void deleteTherepist(ActionEvent event) throws Exception{
+        TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
+
+        if (therepyTM != null){
+            int therepiId = therepyTM.getId();
+            boolean resp = therepistService.deleteTherepy(therepiId);
+            if (resp){
+                new Alert(AlertType.INFORMATION,"Deleted Sucess !").show();
+            }else {
+                new Alert(AlertType.ERROR,"Something Went Wrong").show();
+            }
+        }else {
+            new Alert(AlertType.ERROR,"Cannot Find That Therepist!").show();
+        }
     }
 
     @FXML
-    void updateTherepist(ActionEvent event) {
+    void updateTherepist(ActionEvent event) throws Exception{
+        ThereoistDto thereoistDto = new ThereoistDto();
+        ProgrammeDto programmeDto = programmeService.search(id);
 
+        thereoistDto.setName(nameTxt.getText());
+        thereoistDto.setProID(programmeDto);
+        thereoistDto.setContact(Integer.parseInt(contactTxt.getText()));
+
+        boolean resp = therepistService.updateTherepist(thereoistDto);
+
+        if (resp){
+            new Alert(AlertType.INFORMATION,"Therepist Added Succes").show();
+            clearFields();
+            getAllTherepies();
+            getAllProgrammes();
+        }else {
+            new Alert(AlertType.ERROR,"Something Went Wrong !").show();
+        }
     }
 
     @FXML
@@ -161,7 +194,7 @@ public class TherepistController implements Initializable {
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-            programmeCol.setCellValueFactory(new PropertyValueFactory<>("pro_Id"));
+            programmeCol.setCellValueFactory(new PropertyValueFactory<>("proName"));
             contactCol.setCellValueFactory(new PropertyValueFactory<>("contact"));
 
             getAllProgrammes();
@@ -171,9 +204,26 @@ public class TherepistController implements Initializable {
         }
     }
 
-    void getAllTherepies(){
+    void getAllTherepies() {
+        ArrayList<ThereoistDto> therepyDtos = therepistService.getAll();
+        ObservableList<TherepyTM> theTMS = FXCollections.observableArrayList();
 
+        for (ThereoistDto thereoistDto : therepyDtos) {
+            ProgrammeDto programmeDto = thereoistDto.getProID(); // Get ProgrammeDto from ThereoistDto
+
+            if (programmeDto != null) {
+                theTMS.add(new TherepyTM(
+                        thereoistDto.getId(),
+                        thereoistDto.getName(),
+                        programmeDto.getName(), // Get Programme ID correctly
+                        thereoistDto.getContact()
+                ));
+            }
+        }
+
+        therepistTbl.setItems(theTMS);
     }
+
 
     void clearFields(){
         nameTxt.setText("");

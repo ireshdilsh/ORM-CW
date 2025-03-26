@@ -2,15 +2,12 @@ package org.example.ormhibernatefinalcw.dao.custom.impl;
 
 import org.example.ormhibernatefinalcw.config.SessionFactoryConfiguration;
 import org.example.ormhibernatefinalcw.dao.custom.ProgrammeDao;
-import org.example.ormhibernatefinalcw.entity.Patcient;
 import org.example.ormhibernatefinalcw.entity.Programme;
-import org.example.ormhibernatefinalcw.entity.Therepist;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ProgrammeDaoImpl implements ProgrammeDao {
 
