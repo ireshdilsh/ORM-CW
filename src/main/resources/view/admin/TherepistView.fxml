@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
@@ -71,14 +74,63 @@
                 <BoxBlur height="255.0" iterations="3" width="255.0" />
             </effect>
         </Circle>
-      <TextField layoutX="49.0" layoutY="184.0" prefHeight="42.0" prefWidth="295.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+      <TextField fx:id="nameTxt" layoutX="112.0" layoutY="184.0" prefHeight="42.0" prefWidth="329.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font></TextField>
-      <Text fill="#333333" layoutX="50.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therepist Name">
+      <Text fill="#333333" layoutX="113.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therepist Name">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </Text>
+      <Text fill="#333333" layoutX="493.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Programme">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <JFXComboBox layoutX="-229.0" layoutY="23.0" />
+      <JFXComboBox fx:id="programmeCmb" layoutX="493.0" layoutY="184.0" onAction="#clickCmb" prefHeight="42.0" prefWidth="251.0" promptText="Select Programme" style="-fx-background-color: #fafafa; -fx-border-color: #B5B8C6; -fx-padding: 0 10px; -fx-border-radius: 5px;" />
+      <TextField fx:id="contactTxt" layoutX="112.0" layoutY="249.0" prefHeight="42.0" prefWidth="182.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </TextField>
+      <Text fill="#333333" layoutX="113.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Therepist Contact NO">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="saveBtn" layoutX="319.0" layoutY="249.0" onAction="#addTherepist" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #6366f1;" text="Add Therepist" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="updateBtn" layoutX="463.0" layoutY="249.0" onAction="#updateTherepist" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #6366f1;" text="Update Therepist" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" layoutX="607.0" layoutY="249.0" onAction="#deleteTherepist" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #6366f1;" text="Delete Therepist" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="therepistTbl" layoutX="113.0" layoutY="316.0" onMouseClicked="#clickTbl" prefHeight="200.0" prefWidth="631.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nameCol" prefWidth="187.99993896484375" text="Name" />
+            <TableColumn fx:id="programmeCol" prefWidth="187.99993896484375" text="Programme" />
+            <TableColumn fx:id="contactCol" prefWidth="179.20000000000005" text="Contact" />
+        </columns>
+      </TableView>
     </children>
 </AnchorPane>

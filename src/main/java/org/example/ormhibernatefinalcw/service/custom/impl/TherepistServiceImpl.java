@@ -1,0 +1,18 @@
+package org.example.ormhibernatefinalcw.service.custom.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.example.ormhibernatefinalcw.dao.DaoFactory;
+import org.example.ormhibernatefinalcw.dao.DaoFactory.Type;
+import org.example.ormhibernatefinalcw.dao.custom.TherepistDao;
+import org.example.ormhibernatefinalcw.dto.ProgrammeDto;
+import org.example.ormhibernatefinalcw.entity.Programme;
+import org.example.ormhibernatefinalcw.service.custom.TherepistService;
+
+public class TherepistServiceImpl implements TherepistService{
+
+    TherepistDao therepistDao = (TherepistDao) DaoFactory.getInstance().getDao(Type.THEREPIST);
+
+
+}

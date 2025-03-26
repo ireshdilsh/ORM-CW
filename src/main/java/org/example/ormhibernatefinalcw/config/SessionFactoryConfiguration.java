@@ -4,6 +4,7 @@ import org.example.ormhibernatefinalcw.entity.Admin;
 import org.example.ormhibernatefinalcw.entity.Patcient;
 import org.example.ormhibernatefinalcw.entity.Programme;
 import org.example.ormhibernatefinalcw.entity.Riciepion;
+import org.example.ormhibernatefinalcw.entity.Therepist;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +19,8 @@ public class SessionFactoryConfiguration {
         configuration.addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Riciepion.class)
                 .addAnnotatedClass(Patcient.class)
-                .addAnnotatedClass(Programme.class);
+                .addAnnotatedClass(Programme.class)
+                .addAnnotatedClass(Therepist.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 

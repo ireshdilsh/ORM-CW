@@ -10,6 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProgrammeTM {
+    public ProgrammeTM(String name2) {
+        this.name = name2;
+    }
     private int id;
     private String name;
     private String duration;
