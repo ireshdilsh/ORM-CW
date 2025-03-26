@@ -135,11 +135,13 @@ public class TherepistController implements Initializable {
         deleteBtn.setDisable(false);
         updateBtn.setDisable(false);
         TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
-
         if (therepyTM != null) {
+            // Set the values to the TextFields
             nameTxt.setText(therepyTM.getName());
-           // programmeCmb.setVisible(therepyTM.getName());
+            programmeCmb.setValue(new ProgrammeDto(therepyTM.getName()));
             contactTxt.setText(String.valueOf(therepyTM.getContact()));
+        }else {
+            new Alert(AlertType.ERROR,"Cannot Find the Therepist !").show();
         }
     }
 
@@ -147,17 +149,17 @@ public class TherepistController implements Initializable {
     void deleteTherepist(ActionEvent event) throws Exception{
         TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
 
-        if (therepyTM != null){
             int therepiId = therepyTM.getId();
+
             boolean resp = therepistService.deleteTherepy(therepiId);
             if (resp){
                 new Alert(AlertType.INFORMATION,"Deleted Sucess !").show();
+                getAllTherepies();
+                clearFields();
+                getAllProgrammes();
             }else {
                 new Alert(AlertType.ERROR,"Something Went Wrong").show();
             }
-        }else {
-            new Alert(AlertType.ERROR,"Cannot Find That Therepist!").show();
-        }
     }
 
     @FXML
