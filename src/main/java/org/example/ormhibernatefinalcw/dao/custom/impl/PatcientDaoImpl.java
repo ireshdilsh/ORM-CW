@@ -88,12 +88,13 @@ public class PatcientDaoImpl implements PatcientDao {
     }
 
     @Override
-    public Optional<Patcient> findByPK(String pk) {
-        return Optional.empty();
+    public Patcient search(int id) {
+        return null;
     }
 
     @Override
-    public Optional<String> getLastPK() {
-        return Optional.empty();
+    public Patcient findById(int id) {
+        return null;
     }
+
 }

@@ -8,14 +8,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import org.example.ormhibernatefinalcw.dto.ProgrammeDto;
-import org.example.ormhibernatefinalcw.dto.tm.ProgrammeTM;
+import org.example.ormhibernatefinalcw.dto.ThereoistDto;
+import org.example.ormhibernatefinalcw.dto.tm.TherepyTM;
 import org.example.ormhibernatefinalcw.service.ServiceFactory;
 import org.example.ormhibernatefinalcw.service.ServiceFactory.Type;
 import org.example.ormhibernatefinalcw.service.custom.ProgrammeService;
@@ -33,11 +37,8 @@ public class TherepistController implements Initializable {
     @FXML
     private JFXComboBox<ProgrammeDto> programmeCmb;
 
-    // @FXML
-    // private JFXComboBox<ProgrammeDto> programmeCmb;
-
     @FXML
-    private TableColumn<?, ?> contactCol;
+    private TableColumn<TherepyTM, Integer> contactCol;
 
     @FXML
     private TextField contactTxt;
@@ -46,22 +47,22 @@ public class TherepistController implements Initializable {
     private JFXButton deleteBtn;
 
     @FXML
-    private TableColumn<?, ?> idCol;
+    private TableColumn<TherepyTM, Integer> idCol;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<TherepyTM, String> nameCol;
 
     @FXML
     private TextField nameTxt;
 
     @FXML
-    private TableColumn<?, ?> programmeCol;
+    private TableColumn<TherepyTM, String> programmeCol;
 
     @FXML
     private JFXButton saveBtn;
 
     @FXML
-    private TableView<?> therepistTbl;
+    private TableView<TherepyTM> therepistTbl;
 
     @FXML
     private JFXButton updateBtn;
@@ -97,8 +98,24 @@ public class TherepistController implements Initializable {
     private static int id = 0;
 
     @FXML
-    void addTherepist(ActionEvent event) {
-        
+    void addTherepist(ActionEvent event) throws Exception {
+
+        ThereoistDto thereoistDto = new ThereoistDto();
+        ProgrammeDto programmeDto = programmeService.search(id);
+
+        thereoistDto.setName(nameTxt.getText());
+        thereoistDto.setProID(programmeDto);
+        thereoistDto.setContact(Integer.parseInt(contactTxt.getText()));
+
+        boolean resp = therepistService.addTherepist(thereoistDto);
+
+        if (resp){
+            new Alert(AlertType.INFORMATION,"Therepist Added Succes").show();
+            clearFields();
+            getAllTherepies();
+        }else {
+            new Alert(AlertType.ERROR,"Something Went Wrong !").show();
+        }
     }
 
     @FXML
@@ -112,7 +129,13 @@ public class TherepistController implements Initializable {
 
     @FXML
     void clickTbl(MouseEvent event) {
+        TherepyTM therepyTM = therepistTbl.getSelectionModel().getSelectedItem();
 
+        if (therepyTM != null) {
+            nameTxt.setText(therepyTM.getName());
+           // programmeCmb.setVisible(therepyTM.getName());
+            contactTxt.setText(String.valueOf(therepyTM.getContact()));
+        }
     }
 
     @FXML
@@ -135,9 +158,26 @@ public class TherepistController implements Initializable {
         try {
             updateBtn.setDisable(true);
             deleteBtn.setDisable(true);
+
+            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+            nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            programmeCol.setCellValueFactory(new PropertyValueFactory<>("pro_Id"));
+            contactCol.setCellValueFactory(new PropertyValueFactory<>("contact"));
+
             getAllProgrammes();
+            getAllTherepies();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void getAllTherepies(){
+
+    }
+
+    void clearFields(){
+        nameTxt.setText("");
+        programmeCmb.getItems().clear();
+        contactTxt.setText("");
     }
 }

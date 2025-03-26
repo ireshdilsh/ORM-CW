@@ -51,15 +51,13 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public Optional<Admin> findByPK(String pk) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByPK'");
+    public Admin search(int id) {
+        return null;
     }
 
     @Override
-    public Optional<String> getLastPK() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLastPK'");
+    public Admin findById(int id) {
+        return null;
     }
 
 }

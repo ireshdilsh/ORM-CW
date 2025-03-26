@@ -13,4 +13,6 @@ public interface ProgrammeService extends SuperService {
     boolean updateProgramme(ProgrammeDto programmeDto);
 
     ArrayList<ProgrammeDto> getAll();
+
+    ProgrammeDto search(int id);
 }

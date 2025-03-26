@@ -4,6 +4,7 @@ import org.example.ormhibernatefinalcw.config.SessionFactoryConfiguration;
 import org.example.ormhibernatefinalcw.dao.custom.ProgrammeDao;
 import org.example.ormhibernatefinalcw.entity.Patcient;
 import org.example.ormhibernatefinalcw.entity.Programme;
+import org.example.ormhibernatefinalcw.entity.Therepist;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -88,12 +89,29 @@ public class ProgrammeDaoImpl implements ProgrammeDao {
     }
 
     @Override
-    public Optional<Programme> findByPK(String pk) {
-        return Optional.empty();
+    public Programme search(int id) {
+        Session session = sessionFactoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+        Programme programme = null;
+
+        try {
+            programme = session.get(Programme.class,id);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
+        return  programme;
     }
 
     @Override
-    public Optional<String> getLastPK() {
-        return Optional.empty();
+    public Programme findById(int id) {
+        Session session = sessionFactoryConfiguration.getSession();
+        return session.get(Programme.class, id);
     }
+
 }

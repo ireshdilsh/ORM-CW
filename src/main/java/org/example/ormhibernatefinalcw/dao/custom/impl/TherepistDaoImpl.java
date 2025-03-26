@@ -17,10 +17,23 @@ public class TherepistDaoImpl implements TherepistDao{
 
     @Override
     public boolean save(Therepist t) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
-    }
+        Session session = configuration.getSession();
+        Transaction transaction = session.beginTransaction();
 
+        try {
+            session.persist(t);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
+    }
     @Override
     public boolean update(Therepist t) {
         // TODO Auto-generated method stub
@@ -40,16 +53,29 @@ public class TherepistDaoImpl implements TherepistDao{
     }
 
     @Override
-    public Optional<Therepist> findByPK(String pk) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByPK'");
+    public Therepist search(int id) {
+        Session session = configuration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Therepist therepist = null;
+        try {
+            therepist = session.get(Therepist.class,id);
+            transaction.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
+        return therepist;
     }
 
     @Override
-    public Optional<String> getLastPK() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLastPK'");
+    public Therepist findById(int id) {
+        Session session = configuration.getSession();
+        return session.get(Therepist.class, id);
     }
-
 
 }

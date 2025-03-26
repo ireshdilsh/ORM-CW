@@ -51,4 +51,17 @@ public class ProgrammeServiceImpl implements ProgrammeService {
         }
         return programmeDtos;
     }
+
+    @Override
+    public ProgrammeDto search(int id) {
+        Programme programme = programmeDao.search(id);
+        ProgrammeDto programmeDto = new ProgrammeDto();
+
+        programmeDto.setId(programme.getId());
+        programmeDto.setName(programme.getName());
+        programmeDto.setDuration(programme.getDuration());
+        programmeDto.setFees(programme.getFees());
+
+        return programmeDto;
+    }
 }
