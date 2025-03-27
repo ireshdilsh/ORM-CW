@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
@@ -71,14 +75,58 @@
                 <BoxBlur height="255.0" iterations="3" width="255.0" />
             </effect>
         </Circle>
-        <TextField layoutX="49.0" layoutY="184.0" prefHeight="42.0" prefWidth="295.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+        <TextField fx:id="nameTxt" layoutX="71.0" layoutY="187.0" prefHeight="42.0" prefWidth="224.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font></TextField>
-        <Text fill="#333333" layoutX="50.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Name">
+        <Text fill="#333333" layoutX="72.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Name">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font>
         </Text>
+      <Text fill="#333333" layoutX="323.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Date">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#333333" layoutX="545.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Session Name">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="threpistCmb" layoutX="545.0" layoutY="187.0" onAction="#selectTherepist" prefHeight="42.0" prefWidth="242.0" promptText="Select Therepist" style="-fx-background-color: #fafafa; -fx-border-color: #B5B8C6; -fx-border-radius: 5px; -fx-padding: 0 10px;" />
+      <DatePicker fx:id="dateTxt" layoutX="322.0" layoutY="188.0" prefHeight="42.0" prefWidth="201.0" promptText="Seletc Date" style="-fx-background-color: #fafafa; -fx-border-color: #B5B8C6; -fx-padding: 0 10px;" />
+      <TableView fx:id="sessionTbl" layoutX="70.0" layoutY="299.0" onMouseClicked="#clickTbl" prefHeight="210.0" prefWidth="718.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nameCol" prefWidth="163.99996948242188" text="Name" />
+            <TableColumn fx:id="dateCol" prefWidth="200.0" text="Date" />
+            <TableColumn fx:id="TherepyCol" prefWidth="278.3998718261719" text="Therepist Name" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="saveBtn" layoutX="304.0" layoutY="246.0" onAction="#addSession" prefHeight="42.0" prefWidth="153.0" style="-fx-background-color: #6366f1;" text="Add Session" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="updateBtn" layoutX="469.0" layoutY="246.0" onAction="#updateSession" prefHeight="42.0" prefWidth="153.0" style="-fx-background-color: #6366f1;" text="Update Session" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" layoutX="634.0" layoutY="246.0" onAction="#deleteSession" prefHeight="42.0" prefWidth="153.0" style="-fx-background-color: #6366f1;" text="Delete Session" textFill="#fcfcfc">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
     </children>
 </AnchorPane>

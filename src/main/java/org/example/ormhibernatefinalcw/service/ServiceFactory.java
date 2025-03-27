@@ -1,10 +1,6 @@
 package org.example.ormhibernatefinalcw.service;
 
-import org.example.ormhibernatefinalcw.service.custom.impl.AdminServiceImpl;
-import org.example.ormhibernatefinalcw.service.custom.impl.PatcientServiceImpl;
-import org.example.ormhibernatefinalcw.service.custom.impl.ProgrammeServiceImpl;
-import org.example.ormhibernatefinalcw.service.custom.impl.RicieptionServiceImpl;
-import org.example.ormhibernatefinalcw.service.custom.impl.TherepistServiceImpl;
+import org.example.ormhibernatefinalcw.service.custom.impl.*;
 
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
@@ -31,13 +27,15 @@ public class ServiceFactory {
 
                 case THEREPIST:
                 return new TherepistServiceImpl();
-
+                
+            case THE_SESSION:
+                return new SessionServiceImpl();
             default:
                 return null;
         }
     }
 
     public enum Type{
-        ADMIN,RICIEPTION,PATCIENT,PROGRAMME,THEREPIST
+        ADMIN,RICIEPTION,PATCIENT,PROGRAMME,THEREPIST,THE_SESSION
     }
 }

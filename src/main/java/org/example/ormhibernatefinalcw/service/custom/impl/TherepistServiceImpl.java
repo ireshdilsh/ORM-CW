@@ -82,5 +82,18 @@ public class TherepistServiceImpl implements TherepistService{
         }
     }
 
+    @Override
+    public ThereoistDto search(int id) {
+        Therepist therepist = therepistDao.search(id);
+        ThereoistDto programmeDto = new ThereoistDto();
+
+        programmeDto.setId(therepist.getId());
+        programmeDto.setName(therepist.getName());
+      //  programmeDto.setProID(therepist.getProgramme());
+        programmeDto.setContact(therepist.getContact());
+
+        return programmeDto;
+    }
+
 
 }

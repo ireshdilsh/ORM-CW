@@ -14,4 +14,6 @@ public interface TherepistService extends SuperService{
     boolean deleteTherepy(int id) throws Exception;
 
     boolean updateTherepist(ThereoistDto thereoistDto) throws Exception;
+
+    ThereoistDto search(int id);
 }

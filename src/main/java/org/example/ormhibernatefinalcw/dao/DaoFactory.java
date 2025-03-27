@@ -1,10 +1,6 @@
 package org.example.ormhibernatefinalcw.dao;
 
-import org.example.ormhibernatefinalcw.dao.custom.impl.AdminDaoImpl;
-import org.example.ormhibernatefinalcw.dao.custom.impl.PatcientDaoImpl;
-import org.example.ormhibernatefinalcw.dao.custom.impl.ProgrammeDaoImpl;
-import org.example.ormhibernatefinalcw.dao.custom.impl.RicieptionDaoImpl;
-import org.example.ormhibernatefinalcw.dao.custom.impl.TherepistDaoImpl;
+import org.example.ormhibernatefinalcw.dao.custom.impl.*;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -28,12 +24,14 @@ public class DaoFactory {
                 return new ProgrammeDaoImpl();
             case THEREPIST:
                 return new TherepistDaoImpl();
+            case THE_SESSION:
+                return new SessionDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum Type {
-        ADMIN, RICIEPTION, PATCIENT, PROGRAMME, THEREPIST
+        ADMIN, RICIEPTION, PATCIENT, PROGRAMME, THEREPIST,THE_SESSION
     }
 }
