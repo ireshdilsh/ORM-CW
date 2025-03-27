@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -73,7 +74,7 @@
                 <BoxBlur height="255.0" iterations="3" width="255.0" />
             </effect>
         </Circle>
-        <TextField fx:id="nameTxt" layoutX="108.0" layoutY="174.0" prefHeight="42.0" prefWidth="295.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+        <TextField fx:id="nameTxt" layoutX="108.0" layoutY="174.0" prefHeight="42.0" prefWidth="222.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
             <font>
                 <Font name="Poppins Medium" size="12.0" />
             </font></TextField>
@@ -82,17 +83,17 @@
                 <Font name="Poppins Medium" size="12.0" />
             </font>
         </Text>
-      <TextField fx:id="emailTxt" layoutX="443.0" layoutY="174.0" prefHeight="42.0" prefWidth="295.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+      <TextField fx:id="emailTxt" layoutX="343.0" layoutY="174.0" prefHeight="42.0" prefWidth="222.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </TextField>
-      <Text fill="#333333" layoutX="444.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address">
+      <Text fill="#333333" layoutX="344.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="contactTxt" layoutX="108.0" layoutY="247.0" prefHeight="42.0" prefWidth="222.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+      <TextField fx:id="contactTxt" layoutX="108.0" layoutY="247.0" prefHeight="42.0" prefWidth="166.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
@@ -102,7 +103,7 @@
             <Font name="Poppins Medium" size="12.0" />
          </font>
       </Text>
-      <JFXButton layoutX="385.0" layoutY="246.0" onAction="#addPatcient" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #6366f1;" text="Add Patcient" textFill="#fcfcfc">
+      <JFXButton fx:id="addBtn" layoutX="480.0" layoutY="246.0" onAction="#addPatcient" prefHeight="42.0" prefWidth="82.0" style="-fx-background-color: #6366f1;" text="Add " textFill="#fcfcfc">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
@@ -110,7 +111,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="504.0" layoutY="246.0" onAction="#updatePatcient" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #6366f1;" text="Update Patcient" textFill="#fcfcfc">
+      <JFXButton fx:id="updateBtn" layoutX="568.0" layoutY="246.0" onAction="#updatePatcient" prefHeight="42.0" prefWidth="82.0" style="-fx-background-color: #6366f1;" text="Update " textFill="#fcfcfc">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
@@ -118,7 +119,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="624.0" layoutY="246.0" onAction="#deletePatcient" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #6366f1;" text="Delete Patcient" textFill="#fcfcfc">
+      <JFXButton fx:id="deleteBtn" layoutX="656.0" layoutY="246.0" onAction="#deletePatcient" prefHeight="42.0" prefWidth="82.0" style="-fx-background-color: #6366f1;" text="Delete " textFill="#fcfcfc">
          <font>
             <Font name="Poppins Medium" size="12.0" />
          </font>
@@ -126,13 +127,30 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="patTbl" layoutX="109.0" layoutY="315.0" onMouseClicked="#tblClick" prefHeight="186.0" prefWidth="630.0">
+      <TableView fx:id="patTbl" layoutX="31.0" layoutY="312.0" onMouseClicked="#tblClick" prefHeight="186.0" prefWidth="799.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Pat_ID" />
           <TableColumn fx:id="nameCol" prefWidth="207.1999969482422" text="Name" />
-            <TableColumn fx:id="emailCol" prefWidth="207.1999969482422" text="Email" />
-            <TableColumn fx:id="contactCol" prefWidth="140.00003662109373" text="Contact" />
+            <TableColumn fx:id="emailCol" prefWidth="207.1999969482422" text="Programme" />
+            <TableColumn fx:id="programmeCol" prefWidth="193.599853515625" text="Email" />
+            <TableColumn fx:id="contactCol" prefWidth="115.2001953125" text="Contact" />
         </columns>
       </TableView>
+      <JFXComboBox fx:id="proCmb" layoutX="590.0" layoutY="174.0" onAction="#selectProgramme" prefHeight="42.0" prefWidth="146.0" style="-fx-background-color: #fafafa; -fx-border-color: #B5B8C6; -fx-padding: 0 10px; -fx-border-radius: 5px;" />
+      <Text fill="#333333" layoutX="590.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programme Name">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
+      <TextField fx:id="amountTxt" layoutX="292.0" layoutY="247.0" prefHeight="42.0" prefWidth="166.0" style="-fx-border-color: #B5B8C6; -fx-background-color: #fafafa; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-padding: 0 10px;">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </TextField>
+      <Text fill="#333333" layoutX="293.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

@@ -30,12 +30,16 @@ public class ServiceFactory {
                 
             case THE_SESSION:
                 return new SessionServiceImpl();
+
+            case PAYMENT:
+                return new PaymentServiceImpl();
+
             default:
                 return null;
         }
     }
 
     public enum Type{
-        ADMIN,RICIEPTION,PATCIENT,PROGRAMME,THEREPIST,THE_SESSION
+        ADMIN,RICIEPTION,PATCIENT,PROGRAMME,THEREPIST,THE_SESSION,PAYMENT
     }
 }

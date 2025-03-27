@@ -17,7 +17,8 @@ public class SessionFactoryConfiguration {
                 .addAnnotatedClass(Patcient.class)
                 .addAnnotatedClass(Programme.class)
                 .addAnnotatedClass(Therepist.class)
-                .addAnnotatedClass(ThereSession.class);
+                .addAnnotatedClass(ThereSession.class)
+                .addAnnotatedClass(Payment.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 

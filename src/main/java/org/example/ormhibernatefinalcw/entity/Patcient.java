@@ -21,9 +21,14 @@ public class Patcient {
     @Column(name = "contact" ,nullable = false)
     private int contact;
 
-    public Patcient(String name, String email, int contact) {
+    @ManyToOne
+    @JoinColumn(name = "pro_Id")
+    private Programme programme;
+
+    public Patcient(String name, String email, int contact, Programme programme) {
         this.name = name;
         this.email = email;
         this.contact = contact;
+        this.programme = programme;
     }
 }

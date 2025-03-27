@@ -89,7 +89,6 @@ public class TherepistServiceImpl implements TherepistService{
 
         programmeDto.setId(therepist.getId());
         programmeDto.setName(therepist.getName());
-      //  programmeDto.setProID(therepist.getProgramme());
         programmeDto.setContact(therepist.getContact());
 
         return programmeDto;

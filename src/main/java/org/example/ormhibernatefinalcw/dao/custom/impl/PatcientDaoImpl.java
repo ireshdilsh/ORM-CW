@@ -3,6 +3,7 @@ package org.example.ormhibernatefinalcw.dao.custom.impl;
 import org.example.ormhibernatefinalcw.config.SessionFactoryConfiguration;
 import org.example.ormhibernatefinalcw.dao.custom.PatcientDao;
 import org.example.ormhibernatefinalcw.entity.Patcient;
+import org.example.ormhibernatefinalcw.entity.Programme;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -89,12 +90,28 @@ public class PatcientDaoImpl implements PatcientDao {
 
     @Override
     public Patcient search(int id) {
-        return null;
+        Session session = sessionFactoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+        Patcient patcient = null;
+
+        try {
+            patcient = session.get(Patcient.class,id);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
+        return patcient;
     }
 
     @Override
     public Patcient findById(int id) {
-        return null;
+        Session session = sessionFactoryConfiguration.getSession();
+        return session.get(Patcient.class, id);
     }
 
 }

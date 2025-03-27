@@ -6,9 +6,10 @@ import org.example.ormhibernatefinalcw.service.SuperService;
 import java.util.ArrayList;
 
 public interface PatcientService extends SuperService {
-    boolean addPatcient(PatcientDto patcientDto) throws Exception;
 
-    boolean updatePatcient(PatcientDto patcientDto) throws Exception;
+    PatcientDto search(int id);
+
+    boolean addPatcient(PatcientDto patcientDto) throws Exception;
 
     ArrayList<PatcientDto> getAll();
 

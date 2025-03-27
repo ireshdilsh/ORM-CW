@@ -97,7 +97,7 @@ public class TherepySessionController implements Initializable {
 
         if (sessionTM != null){
             nameTxt.setText(sessionTM.getName());
-            dateTxt.setValue(sessionTM.getDate());
+            dateTxt.setPromptText(String.valueOf(sessionTM.getDate()));
             threpistCmb.setPromptText(sessionTM.getTherepistName());
         }
     }

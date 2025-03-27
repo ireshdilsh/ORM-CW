@@ -2,8 +2,13 @@ package org.example.ormhibernatefinalcw.service.custom.impl;
 
 import org.example.ormhibernatefinalcw.dao.DaoFactory;
 import org.example.ormhibernatefinalcw.dao.custom.PatcientDao;
+import org.example.ormhibernatefinalcw.dao.custom.ProgrammeDao;
 import org.example.ormhibernatefinalcw.dto.PatcientDto;
+import org.example.ormhibernatefinalcw.dto.ProgrammeDto;
+import org.example.ormhibernatefinalcw.dto.ThereoistDto;
 import org.example.ormhibernatefinalcw.entity.Patcient;
+import org.example.ormhibernatefinalcw.entity.Programme;
+import org.example.ormhibernatefinalcw.entity.Therepist;
 import org.example.ormhibernatefinalcw.service.custom.PatcientService;
 
 import java.util.ArrayList;
@@ -11,35 +16,59 @@ import java.util.List;
 
 public class PatcientServiceImpl implements PatcientService {
     PatcientDao patcientDao = (PatcientDao) DaoFactory.getInstance().getDao(DaoFactory.Type.PATCIENT);
+    ProgrammeDao programmeDao = (ProgrammeDao) DaoFactory.getInstance().getDao(DaoFactory.Type.PROGRAMME);
 
     @Override
-    public boolean addPatcient(PatcientDto patcientDto) throws Exception{
-        return patcientDao.save(new Patcient(
-                patcientDto.getName(),
-                patcientDto.getEmail(),
-                patcientDto.getContact()
-        ));
+    public PatcientDto search(int id) {
+        Patcient patcient = patcientDao.search(id);
+        PatcientDto patcientDto = new PatcientDto();
+
+        patcientDto.setId(patcient.getId());
+        patcientDto.setName(patcient.getName());
+        patcientDto.setContact(patcient.getContact());
+
+        return patcientDto;
     }
 
     @Override
-    public boolean updatePatcient(PatcientDto patcientDto) throws Exception{
-        return patcientDao.update(new Patcient(
-                patcientDto.getName(), patcientDto.getEmail(), patcientDto.getContact()
-        ));
+    public boolean addPatcient(PatcientDto patcientDto) throws Exception{
+        Programme programme = programmeDao.findById(patcientDto.getProgrammeDto().getId());
+        Patcient patcient = new Patcient();
+
+        patcient.setId(patcientDto.getId());
+        patcient.setName(patcientDto.getName());
+        patcient.setProgramme(programme);
+        patcient.setEmail(patcientDto.getEmail());
+        patcient.setContact(patcientDto.getContact());
+
+        boolean resp = patcientDao.save(patcient);
+
+        if (resp){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public ArrayList<PatcientDto> getAll() {
-        ArrayList<PatcientDto>patcientDtos = new ArrayList<>();
+        ArrayList<PatcientDto> patcientDtos = new ArrayList<>();
         List<Patcient> patcients = patcientDao.getAll();
 
-        for (Patcient patcient : patcients){
-            patcientDtos.add(new PatcientDto(
-                    patcient.getId(),
-                    patcient.getName(),
-                    patcient.getEmail(),
-                    patcient.getContact()
-            ));
+        for (Patcient patcient : patcients) {
+            Programme programme = patcient.getProgramme(); // Get Programme entity directly
+
+            if (programme != null) {
+                ProgrammeDto programmeDto = new ProgrammeDto(programme.getName()); // Convert Programme to ProgrammeDto
+
+                patcientDtos.add(new PatcientDto(
+                        patcient.getId(),
+                        patcient.getName(),
+                        programmeDto,
+                        patcient.getEmail(),
+                        patcient.getContact()
+                ));
+            }
         }
         return patcientDtos;
     }
