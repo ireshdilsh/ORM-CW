@@ -13,13 +13,16 @@ public class PaymentDto {
     private int id;
     private LocalDate date;
     private Double amount;
-    private PatcientDto patcient;
-    private ProgrammeDto programme;
-
-    public PaymentDto(LocalDate date, Double amount, PatcientDto patcient, ProgrammeDto programme) {
-        this.date = date;
-        this.amount = amount;
-        this.patcient = patcient;
-        this.programme = programme;
+    private int patcient;
+    private int programme;
+    
+    public PaymentDto(LocalDate now, double double1, int paID, int id2) {
+        //TODO Auto-generated constructor stub
+        this.date = now;
+        this.amount = double1;
+        this.patcient = paID;
+        this.programme = id2;
     }
+
+    
 }

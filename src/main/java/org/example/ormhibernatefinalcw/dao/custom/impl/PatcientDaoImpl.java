@@ -113,5 +113,21 @@ public class PatcientDaoImpl implements PatcientDao {
         Session session = sessionFactoryConfiguration.getSession();
         return session.get(Patcient.class, id);
     }
+    @Override
+    public int saves(Patcient patcient) {
+        int generatedId;
+        Session session = sessionFactoryConfiguration.getSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            generatedId = (int) session.save(patcient); // Hibernate assigns ID here
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
 
+        return generatedId;
+    }
 }
